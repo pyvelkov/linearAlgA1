@@ -1,3 +1,5 @@
+//Plamen Velkov
+
 public class PartA {
 
     //Method to merge the given Matrix (A) in main with the vector (b) in order to alter both at the same time using the
@@ -19,7 +21,6 @@ public class PartA {
 
     //Method for Gauss elimination algorithm for altering the matrix to create the upper triangular system.
     public static void gaussElimination(double[][] matrix) {
-        System.out.println("=========Iterations=========");
         for (int k = 0; k < matrix[0].length; k++){
             for (int i = k + 1; i< matrix.length; i++){
                 if(matrix[k][k] == 0) return;
@@ -60,6 +61,25 @@ public class PartA {
         double[] b = { 5, 16, 22, 15 };
 
         mergeMV(A, b);
+
+        //INPUT PRINT
+        System.out.println("============================");
+        System.out.println("----------MATRIX(A)---------");
+        for (double[] doubles : A) {
+            System.out.print("| ");
+            for (int j = 0; j < doubles.length - 1; j++) {
+                System.out.print(doubles[j] + " ");
+            }
+            System.out.print("|");
+            System.out.println();
+        }
+        System.out.println("----------VECTOR(b)---------");
+        for(int i = 0; i<b.length; i++){
+            System.out.println("| " + b[i] + " |");
+        }
+        System.out.println("============================");
+
+        System.out.println("---------ITERATIONS---------");
         gaussElimination(A);
 
         //transformation logic to apply substitution to the matrix
@@ -80,6 +100,7 @@ public class PartA {
         for (int i = 0; i < A.length; i++)
             answer[i] = A[i][A[0].length-1];
 
+        System.out.println("-----------ANSWERS-----------");
         for (int i = 0; i<answer.length-1; i++)
             System.out.print(" x" + (i+1) +" = " + answer[i] + " ,");
     }
